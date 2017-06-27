@@ -37,10 +37,13 @@ unsigned long Storage::getDiskSize()
     unsigned long blockSize(0);
     if (m_opened)
     {
-        ioctl(m_fd, DKIOCGETBLOCKCOUNT, &blockCount);
-        ioctl(m_fd, DKIOCGETBLOCKSIZE, &blockSize);
-
-        return (blockCount * blockSize);
+        if (!m_diskSize)
+        {
+            ioctl(m_fd, DKIOCGETBLOCKCOUNT, &blockCount);
+            ioctl(m_fd, DKIOCGETBLOCKSIZE, &blockSize);
+            m_diskSize = blockCount * blockSize;
+        }
+        return (m_diskSize);
     }
     return (0);
 }

@@ -14,9 +14,9 @@ protected:
 public:
     MusicFAT(std::string name, uint16_t size, uint16_t sector);
 
-    std::string getName();
-    uint16_t getSize();
-    uint16_t getSector();
+    std::string getName() const;
+    uint16_t getSize() const;
+    uint16_t getSector() const;
 };
 
 #endif

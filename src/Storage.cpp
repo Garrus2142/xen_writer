@@ -25,7 +25,10 @@ void Storage::open()
 void Storage::close()
 {
     if (m_opened)
+    {
         ::close(m_fd);
+        m_opened = false;
+    }
 }
 
 unsigned long Storage::getDiskSize()

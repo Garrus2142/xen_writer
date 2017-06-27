@@ -62,8 +62,10 @@ void XFormat::writeMusic(const MusicFile & music)
     uint16_t sector;
     vector<uint8_t> fat;
 
-    if (!(m_opened || isFormatted()))
-        return;
+    if (!m_opened)
+        throw logic_error("Disk not opened");
+    if (!isFormatted())
+        throw logic_error("Disk not formatted");
     if (!music.getName().size())
         throw logic_error("You must enter name for music");
     if (getMusicCount() >= XFORMAT_FAT_MAXENTRY)
@@ -110,8 +112,10 @@ void XFormat::renameMusic(uint16_t sector, const string & name)
     vector<uint8_t> fat;
     string subname;
 
-    if (!(m_opened || isFormatted()))
-        return;
+    if (!m_opened)
+        throw logic_error("Disk not opened");
+    if (!isFormatted())
+        throw logic_error("Disk not formatted");
 
     subname = name.substr(0, MUSIC_MAX_NAME);
 
@@ -139,8 +143,10 @@ void XFormat::removeMusic(uint16_t sector)
 {
     vector<uint8_t> fat;
 
-    if (!m_opened || !isFormatted())
-        return;
+    if (!m_opened)
+        throw logic_error("Disk not opened");
+    if (!isFormatted())
+        throw logic_error("Disk not formatted");
 
     // Read FAT
     fat = getSectors(1, 8);
@@ -169,8 +175,10 @@ uint8_t XFormat::getMusicCount()
     vector<uint8_t> fat;
     uint8_t count(0);
 
-    if (!m_opened || !isFormatted())
-        return (48);
+    if (!m_opened)
+        return (0);
+    if (!isFormatted())
+        return (0);
 
     // Read FAT
     fat = getSectors(1, 8);
@@ -190,8 +198,10 @@ vector<MusicFAT> XFormat::getListMusic()
     vector<uint8_t> fat;
     vector<MusicFAT> musics;
 
-    if (!m_opened || !isFormatted())
-        return (musics);
+    if (!m_opened)
+        throw logic_error("Disk not opened");
+    if (!isFormatted())
+        throw logic_error("Disk not formatted");
 
     // Read FAT
     fat = getSectors(1, 8);

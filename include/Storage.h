@@ -1,3 +1,6 @@
+#ifndef STORAGE_H
+#define STORAGE_H
+
 #include <String>
 #include <stdexcept>
 #include <fcntl.h>
@@ -26,3 +29,5 @@ public:
     unsigned long getDiskSize();
 
 };
+
+#endif

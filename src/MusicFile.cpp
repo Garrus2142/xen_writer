@@ -7,8 +7,8 @@ MusicFile::MusicFile(string file) : MusicFile(file, "")
 
 }
 
-MusicFile::MusicFile(string file, string name) : m_stream(file, ifstream::binary),
-    m_size(0), m_data(NULL), m_file(file)
+MusicFile::MusicFile(string file, string name) : m_file(file),
+    m_stream(file, ifstream::binary), m_size(0), m_data(NULL)
 {
     setName(name);
 }

@@ -7,7 +7,7 @@
 #include <stdexcept>
 #include <errno.h>
 
-#define MUSIC_MAX_SIZE 4096
+#define MUSIC_MAX_SIZE 2048
 #define MUSIC_MAX_NAME 59
 
 class MusicFile

@@ -4,7 +4,7 @@ Format de donnée pour le stockage des musiques au format XEN lisible par le PIC
 * Taille de chaque secteur: `512 octets`
 * Limite de musiques: `64`
 * Limite de caractère pour le nom des musiques: `59 + \0`
-* Taille maximale d'une musique: `4096 octets`.
+* Taille maximale d'une musique: `2048 octets`.
 * Les octets sont toujours stockés avec le bit de poids fort en premier.
 * Les octets indiqués dans les structures sont toujours inclus. (`0-3` signifie les octets `0, 1, 2 et 3`)
 * Tout les octets sont non-signé.
@@ -44,4 +44,4 @@ La FAT stocke les informations des musiques (Nom, taille, emplacement dans la m�
 Le secteur musique contient les données musicales (notes, durée, tempo).
 
 * Chaque musique utilise `4 secteurs consécutif`
-* La taille d'une musique ne doit pas dépasser 4096 octets
+* La taille d'une musique ne doit pas dépasser 2048 octets

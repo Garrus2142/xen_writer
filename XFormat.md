@@ -29,7 +29,7 @@ La FAT stocke les informations des musiques (Nom, taille, emplacement dans la m�
 * Une entrée dans la FAT fait `64 octets`
 * Les entrées dans la FAT sont ordonnées par le secteur cible.
 * Les entrées dans la FAT peuvent être fragmentées. Cela signifie que l'entrée 1 peut être vide mais pas l'entrée 2.
-* La lecture de l'integralité de la FAT (secteur 1-8) et nescessaire pour récupérer la totalité des données.
+* La lecture de l'integralité de la FAT (secteur 1-8) est nescessaire pour récupérer la totalité des données.
 * Une entrée vide contient les valeurs 0x0 dans les octets `2-3`.
 * La FAT peut stocker au maximum 64 musiques.
 
